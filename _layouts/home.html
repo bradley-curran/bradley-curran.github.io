@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div>
+  
+  <div class="container">
+
+    <div class="row">
+
+    {% for project in site.data.projects %}
+
+        <div class="col-lg-4">
+
+          <div class="card">
+
+            <img class="top" src="assets/img/{{ project.image }}">
+
+            <hr>
+
+            <div class="text-content">
+
+              <div class="title">
+                {{ project.title }}
+              </div>
+
+            </div>
+            <hr>
+
+            <img class="bottom" src="assets/img/{{ project.companyimage }}">
+
+            <img class="bottom" src="assets/img/{{ project.platformimage }}">
+
+          </div>
+
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+  </div>
+  
+  {{ content }}
+
+</div>
