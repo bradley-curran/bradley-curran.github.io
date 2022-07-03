@@ -1,0 +1,64 @@
+body {
+  background-color: #242933;
+  color: #eceff4;
+  font-family: Helvetica, sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+a {
+  color: #88c0d0;
+  text-decoration: none;
+}
+p {
+  line-height: 1.5;
+}
+hr {
+  border: 0.1rem solid #5e81ac;
+}
+pre {
+  background-color: #3b4252;
+  border-left: 0.25rem solid #5e81ac;
+}
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+code {
+  background-color: #3b4252;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
+.nomargin {
+  margin: 0;
+}
+.content {
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+.title {
+  margin: 0;
+}
+.main {
+  background-color: #2e3440;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.basepad {
+  padding: 2rem 4rem;
+}
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.footerunit {
+  text-align: center;
+}
+.experiencetitle {
+  margin-bottom: 0.5rem;
+}
+.experiencesubtitle {
+  font-weight: normal;
+  margin-top: 0.5rem;
+}

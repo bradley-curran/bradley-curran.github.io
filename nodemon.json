@@ -1,0 +1,4 @@
+{
+  "exec": "clear && bssg",
+  "ext": "json less pug"
+}

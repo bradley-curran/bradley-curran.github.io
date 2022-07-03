@@ -1,0 +1,24 @@
+{
+  "buildSteps": [
+    {
+      "step": "rm",
+      "path": "docs"
+    },
+    {
+      "step": "mkdir",
+      "path": "docs"
+    },
+    {
+      "step": "transformless",
+      "inputFile": "style.less",
+      "outputFile": "docs/style.css"
+    },
+    {
+      "step": "transformpug",
+      "inputFile": "index.pug",
+      "outputFile": "docs/index.html",
+      "locals": {
+      }
+    }
+  ]
+}

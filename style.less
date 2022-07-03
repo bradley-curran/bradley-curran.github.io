@@ -1,0 +1,109 @@
+// nord theme
+// more details: https://www.nordtheme.com/docs/colors-and-palettes
+
+// polar night
+@nord0: #2e3440; // bg and area coloring 220°, 28%, 25%
+@nord1: #3b4252; // buttons, checkboxes 222°, 28%, 32%
+@nord2: #434c5e; // active ui 220°, 29%, 37%
+@nord3: #4c566a; // use sparingly 220°, 28%, 42%
+
+// snow storm
+@nord4: #d8dee9; // use sparingly 219°, 7%, 91%
+@nord5: #e5e9f0; // secondary text 218°, 5%, 94%
+@nord6: #eceff4; // primary text 218°, 3%, 96%
+
+// frost
+@nord7: #8fbcbb; // contrast to primary 179°, 24%, 74%
+@nord8: #88c0d0; // primary ui 193°, 35%, 82%
+@nord9: #81a1c1; // secondary ui 210°, 33%, 76%
+@nord10: #5e81ac; // tertiary ui 213°, 45%, 67%
+
+// aurora
+@nord11: #bf616a; // error 354°, 49%, 75%
+@nord12: #d08770; // advanced functions 14°, 46%, 82%
+@nord13: #ebcb8b; // warning 40°, 41%, 92%
+@nord14: #a3be8c; // success 92°, 26%, 75%
+@nord15: #b48ead; // uncommon 311°, 21%, 71%
+
+// secret background color
+@nordbg: #242933;
+
+body {
+  background-color: @nordbg;
+  color: @nord6;
+  font-family: Helvetica, sans-serif;
+  letter-spacing: 0.03em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+a {
+  color: @nord8;
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+hr {
+  border: 0.1rem solid @nord10;
+}
+
+pre {
+  background-color: @nord1;
+  border-left: 0.25rem solid @nord10;
+}
+
+pre > code {
+  display: block;
+  padding: 1rem 1.5rem;
+  white-space: pre;
+}
+
+code {
+  background-color: @nord1;
+  border-radius: 4px;
+  padding: 0.2rem .5rem;
+}
+
+.nomargin {
+  margin: 0;
+}
+
+.content {
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+
+.title {
+  margin: 0;
+}
+
+.main {
+  background-color: @nord0;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.basepad {
+  padding: 2rem 4rem;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footerunit {
+  text-align: center;
+}
+
+.experiencetitle {
+  margin-bottom: 0.5rem;
+}
+
+.experiencesubtitle {
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
