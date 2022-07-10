@@ -15,10 +15,8 @@
     },
     {
       "step": "transformpug",
-      "inputFile": "index.pug",
-      "outputFile": "docs/index.html",
-      "locals": {
-      }
+      "inputFile": "pug/index.pug",
+      "outputFile": "docs/index.html"
     }
   ]
 }
