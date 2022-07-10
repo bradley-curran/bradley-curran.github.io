@@ -9,6 +9,11 @@
       "path": "docs"
     },
     {
+      "step": "cp",
+      "inputFile": "CNAME",
+      "outputFile": "docs/CNAME"
+    },
+    {
       "step": "transformless",
       "inputFile": "style.less",
       "outputFile": "docs/style.css"
