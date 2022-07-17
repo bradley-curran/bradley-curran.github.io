@@ -1,43 +1,39 @@
-extends root.pug
+extends core.pug
 
-block content
-  .main
-    .basepad
-      h1.title Brad Curran
-    hr.nomargin
-    .basepad
-      p Hi, I'm Brad.
-      h2 Experience
-      h3.experiencetitle Senior Software Development Engineer
-      h4.experiencesubtitle Amazon Web Services (AWS)
-      h3.experiencetitle Software Development Engineer
-      h4.experiencesubtitle Amazon
-      h3.experiencetitle Senior Software Engineer
-      h4.experiencesubtitle Outware Mobile
-      h3.experiencetitle Systems Engineer
-      h4.experiencesubtitle Salt Group
-      h3.experiencetitle Software Engineer
-      h4.experiencesubtitle Electronic Arts / Firemonkeys
-    hr.nomargin
-    .basepad
-      h2 Projects
-      h3.projecttitle choppingboard.recipes - An API for scraping recipe websites
-      p choppingboard.recipes was a website and API that converted any marked-up recipe web page into easily consumable JSON data. It handled user logins and registration, rate limiting, and error handling.
-      p The entire website and API cost $10 a month to run on AWS, which I'm quite proud of to this day.  
-      p The website is no longer running, but if I get time again, I'll spin it back up.
-      p #[a(href="https://news.ycombinator.com/item?id=14794949" target="_blank") Hacker News], #[a(href="https://rapidapi.com/blog/directory/choppingboardrecipes/" target="_blank") RapidAPI Blog]
-      h3.projecttitle #[code bssg]
-      p Brad's Static Site Generator.
-      p Given a #[code bssg.json] file, execute a series of build steps to generate a static website.
-      p #[a(href="https://github.com/bradley-curran/bssg#readme" target="_blank") GitHub], #[a(href="https://www.npmjs.com/package/bssg" target="_blank") npm]
-      h3.projecttitle #[code bradley-curran.github.io]
-      p This website! Uses #[code bssg] to generate HTML from markdown/pug/less files.
-      p #[a(href="https://github.com/bradley-curran/bradley-curran.github.io" target="_blank") GitHub]
-      h3.projecttitle #[code generator-bcnode]
-      p A #[a(href="https://www.npmjs.com/package/yo") yo] plugin to generate a nodejs project with best practices preconfigured.
-      p Comes preconfigured with prettierjs, TypeScript, bundling, minification and auto-building.
-      p #[a(href="https://github.com/bradley-curran/generator-bcnode" target="_blank") GitHub], #[a(href="https://www.npmjs.com/package/generator-bcnode" target="_blank") npm]
-    hr.nomargin
-    .basepad
-      h2 Blog
-      p Coming soon!
+block innercontent
+  .basepad
+    p Hi, I'm Brad.
+    h2 Experience
+    h3.experiencetitle Senior Software Development Engineer
+    h4.experiencesubtitle Amazon Web Services (AWS)
+    h3.experiencetitle Software Development Engineer
+    h4.experiencesubtitle Amazon
+    h3.experiencetitle Senior Software Engineer
+    h4.experiencesubtitle Outware Mobile
+    h3.experiencetitle Systems Engineer
+    h4.experiencesubtitle Salt Group
+    h3.experiencetitle Software Engineer
+    h4.experiencesubtitle Electronic Arts / Firemonkeys
+  hr.nomargin
+  .basepad
+    h2 Projects
+    h3.projecttitle choppingboard.recipes - An API for scraping recipe websites
+    p choppingboard.recipes was a website and API that converted any marked-up recipe web page into easily consumable JSON data. It handled user logins and registration, rate limiting, and error handling.
+    p The entire website and API cost $10 a month to run on AWS, which I'm quite proud of to this day.
+    p The website is no longer running, but if I get time again, I'll spin it back up.
+    p #[a(href="https://news.ycombinator.com/item?id=14794949" target="_blank") Hacker News], #[a(href="https://rapidapi.com/blog/directory/choppingboardrecipes/" target="_blank") RapidAPI Blog]
+    h3.projecttitle #[code bssg]
+    p Brad's Static Site Generator.
+    p Given a #[code bssg.json] file, execute a series of build steps to generate a static website.
+    p #[a(href="https://github.com/bradley-curran/bssg#readme" target="_blank") GitHub], #[a(href="https://www.npmjs.com/package/bssg" target="_blank") npm]
+    h3.projecttitle #[code bradley-curran.github.io]
+    p This website! Uses #[code bssg] to generate HTML from markdown/pug/less files.
+    p #[a(href="https://github.com/bradley-curran/bradley-curran.github.io" target="_blank") GitHub]
+    h3.projecttitle #[code generator-bcnode]
+    p A #[a(href="https://www.npmjs.com/package/yo") yo] plugin to generate a nodejs project with best practices preconfigured.
+    p Comes preconfigured with prettierjs, TypeScript, bundling, minification and auto-building.
+    p #[a(href="https://github.com/bradley-curran/generator-bcnode" target="_blank") GitHub], #[a(href="https://www.npmjs.com/package/generator-bcnode" target="_blank") npm]
+  hr.nomargin
+  .basepad
+    h2 Blog
+    p Coming soon!

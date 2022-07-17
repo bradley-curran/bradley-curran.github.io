@@ -9,6 +9,10 @@
       "path": "docs"
     },
     {
+      "step": "mkdir",
+      "path": "docs/blog"
+    },
+    {
       "step": "cp",
       "inputFile": "CNAME",
       "outputFile": "docs/CNAME"
@@ -22,6 +26,12 @@
       "step": "transformpug",
       "inputFile": "pug/index.pug",
       "outputFile": "docs/index.html"
+    },
+    {
+      "step": "transformmarkdown",
+      "inputFile": "blog/test.md",
+      "outputFile": "docs/blog/test.html",
+      "extends": "pug/blog.pug"
     }
   ]
 }
