@@ -40,6 +40,9 @@ code {
 .title {
   margin: 0;
 }
+.title a {
+  color: #eceff4;
+}
 .main {
   background-color: #2e3440;
   border-radius: 0.5rem;
@@ -64,4 +67,18 @@ code {
 }
 .projecttitle {
   margin-top: 2rem;
+}
+.markdown-container h1 {
+  font-size: 1.6em;
+}
+.markdown-container h2 {
+  font-size: 1.4em;
+}
+.markdown-container h3 {
+  font-size: 1.2em;
+}
+.markdown-container img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

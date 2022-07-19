@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Bradley Curran. Senior Software Engineer.">
+    <title>Brad Curran</title>
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="main">
+        <div class="basepad">
+          <h1 class="title"><a href="/">Brad Curran</a></h1>
+        </div>
+        <hr class="nomargin">
+        <div class="basepad markdown-container">
+          <h1><code>bssg</code> - Brad's Static Site Generator</h1>
+          <p>My personal website has gone through a number of iterations over the years.
+            Most of the time it has been a static landing page showing some projects I've worked on and some contact details. Nothing too fancy.</p>
+          <p>In the past I've used GitHub Pages with the static site generator Jekyll for my site.
+            While Jekyll is useful, it's very prescriptive in the way it wants you to store files.</p>
+          <p>With yet another iteration of my site, I decided to create my own static site generator, rather than using an existing tool.
+            <code>bssg</code> is yet another static site generator.
+          </p>
+          <p><img src="https://imgs.xkcd.com/comics/standards.png" alt="Standards"></p>
+          <h2>What's a static site generator?</h2>
+          <p>You can think of a static site generator as a type of build tool, specifically for generating static websites.</p>
+          <p>Static websites are very simple. They're just a bunch of HTML files stored on a server.</p>
+          <p>Now, you <em>could</em> create an entire website by writing HTML manually. That quickly becomes a pain. Changing your website log means changing every page that has the website logo in it.</p>
+          <p>Instead, you can write your website in a format that's easy to write, then use a static website generator to convert that into HTML. You can also do things like have your logo in one file and reuse that file everywhere else. To change your logo, just change that file and every page on your website will update automatically!</p>
+          <h2>Using <code>bssg</code></h2>
+          <p>Install <code>bssg</code> using <code>npm</code>:</p>
+          <pre><code class="language-bash">npm install -g bssg
+</code></pre>
+          <p><code>bssg</code> follows a list of build steps defined in a <code>bssg.json</code> file.
+            Each build step has a <code>step</code> key to identify the step type.
+            It also has a number of other keys, depending on the <code>step</code> type.</p>
+          <h3><code>bssg.json</code> Example</h3>
+          <pre><code class="language-json">{
+  "buildSteps": [
+    {
+      "step": "rm",
+      "path": "docs"
+    },
+    {
+      "step": "mkdir",
+      "path": "docs"
+    },
+    {
+      "step": "cp",
+      "inputFile": "CNAME",
+      "outputFile": "docs/CNAME"
+    },
+    {
+      "step": "transformless",
+      "inputFile": "style.less",
+      "outputFile": "docs/style.css"
+    },
+    {
+      "step": "transformpug",
+      "inputFile": "pug/index.pug",
+      "outputFile": "docs/index.html"
+    }
+  ]
+}
+</code></pre>
+        </div>
+      </div>
+      <div class="footer basepad"><a class="footerunit" href="mailto:brad@bradleycurran.com">Email</a><a class="footerunit" href="https://www.linkedin.com/in/bradleycurran/" target="_blank">LinkedIn</a><a class="footerunit" href="https://github.com/bradley-curran/" target="_blank">GitHub</a></div>
+    </div>
+  </body>
+
+</html>

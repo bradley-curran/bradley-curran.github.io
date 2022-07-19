@@ -29,8 +29,8 @@
     },
     {
       "step": "transformmarkdown",
-      "inputFile": "blog/test.md",
-      "outputFile": "docs/blog/test.html",
+      "inputFile": "blog/bssg.md",
+      "outputFile": "docs/blog/bssg.html",
       "extends": "pug/blog.pug"
     }
   ]
