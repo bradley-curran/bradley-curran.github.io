@@ -25,7 +25,8 @@
     {
       "step": "transformpug",
       "inputFile": "pug/index.pug",
-      "outputFile": "docs/index.html"
+      "outputFile": "docs/index.html",
+      "localsFile": "data.json"
     },
     {
       "step": "transformmarkdown",

@@ -36,5 +36,6 @@ block innercontent
   hr.nomargin
   .basepad
     h2 Blog
-    ul
-      li #[a(href="/blog/bssg") bssg - Brad's Static Site Generator]
+    each post in blogposts
+      ul
+        li #[a(href=post.href) #{post.title}]
