@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Bradley Curran</title>
+    <link>https://bradleycurran.com</link>
+    <description>Bradley Curran RSS</description>
+    <item>
+      <title>bssg - Brad's Static Site Generator</title>
+      <link>https://bradleycurran.com/blog/bssg</link>
+      <description></description>
+    </item>
+  </channel>
+</rss>

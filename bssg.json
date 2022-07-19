@@ -24,6 +24,12 @@
     },
     {
       "step": "transformpug",
+      "inputFile": "pug/rss.pug",
+      "outputFile": "docs/rss.xml",
+      "localsFile": "data.json"
+    },
+    {
+      "step": "transformpug",
       "inputFile": "pug/index.pug",
       "outputFile": "docs/index.html",
       "localsFile": "data.json"
