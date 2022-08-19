@@ -1,0 +1,41 @@
+[bssg]
+
+[[build.steps]]
+step = "rm"
+path = "docs"
+
+[[build.steps]]
+step = "mkdir"
+path = "docs"
+
+[[build.steps]]
+step = "mkdir"
+path = "docs/blog"
+
+[[build.steps]]
+step = "cp"
+inputFile = "CNAME"
+outputFile = "docs/CNAME"
+
+[[build.steps]]
+step = "transformless"
+inputFile = "style.less"
+outputFile = "docs/style.css"
+
+[[build.steps]]
+step = "transformpug"
+inputFile = "pug/rss.pug"
+outputFile = "docs/rss.xml"
+localsFile = "data.json"
+
+[[build.steps]]
+step = "transformpug"
+inputFile = "pug/index.pug"
+outputFile = "docs/index.html"
+localsFile = "data.json"
+
+[[build.steps]]
+step = "transformmarkdown"
+inputFile = "blog/bssg.md"
+outputFile = "docs/blog/bssg.html"
+extends = "pug/blog.pug"
