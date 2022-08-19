@@ -1,4 +1,4 @@
 {
   "exec": "clear && bssg",
-  "ext": "json less md pug"
+  "ext": "json less md pug toml"
 }
