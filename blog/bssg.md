@@ -29,35 +29,61 @@ Install `bssg` using `npm`:
 npm install -g bssg
 ```
 
-`bssg` follows a list of build steps defined in a `bssg.toml` file. 
-Each build step has a `step` key to identify the step type. 
-It also has a number of other keys, depending on the `step` type. 
+`bssg` exposes a number of useful functions as a single command-line executable. 
 
-### `bssg.toml` Example
+The output of each function goes to stdout by default. You can redirect the output using the `>` operator. 
 
-```toml
-[bssg]
+You can execute `bssg` with no arguments to get the list of supported functions: 
 
-[[build.steps]]
-step = "rm"
-path = "docs"
+```
+Usage: bssg [options] [command]
 
-[[build.steps]]
-step = "mkdir"
-path = "docs"
+Brad's Static Website Generator
 
-[[build.steps]]
-step = "cp"
-inputFile = "CNAME"
-outputFile = "docs/CNAME"
+Options:
+  -V, --version                          output the version number
+  -h, --help                             display help for command
 
-[[build.steps]]
-step = "transformless"
-inputFile = "style.less"
-outputFile = "docs/style.less"
+Commands:
+  lessc <input-file>                     compile a less file
+  markdownc <input-file> [extends-file]  compile a markdown file
+  pugc <input-file> [locals-file]        compile a pug file
+  help [command]                         display help for command
+```
 
-[[build.steps]]
-step = "transformpug",
-inputFile = "pug/index.pug",
-outputFile = "docs/index.html"
+### `lessc`
+
+Compiles a `.less` file into CSS. 
+
+```bash
+# reads a less file, converts it to CSS, and writes it to style.css
+bssg lessc style.less > style.css
+```
+
+### `markdownc`
+
+Compiles a markdown file into HTML
+
+```bash
+# reads a markdown file, converts it to HTML, and writes it to blog.html
+bssg markdownc blog.md > blog.html
+
+# reads a markdown file, converts it to HTML, 
+# compiles a pug file, injects the compiled markdown into it,
+# and (finally) writes it to blog.html 
+# replaces BLOCK_CONTENT in the pug file
+bssg markdownc blog.md blog.pug > blog.html 
+```
+
+### `pugc`
+
+Compiles a pug file into HTML
+
+```bash
+# reads a pug file, converts it to HTML and writes it to index.html
+bssg pugc index.pug > index.html
+
+# reads a pug file, using a JSON file as the locals,
+# and writes it to index.html
+bssg pugc index.pug locals.json > index.html
 ```

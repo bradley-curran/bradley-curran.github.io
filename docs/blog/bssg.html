@@ -36,34 +36,47 @@
           <p>Install <code>bssg</code> using <code>npm</code>:</p>
           <pre><code class="language-bash">npm install -g bssg
 </code></pre>
-          <p><code>bssg</code> follows a list of build steps defined in a <code>bssg.toml</code> file.
-            Each build step has a <code>step</code> key to identify the step type.
-            It also has a number of other keys, depending on the <code>step</code> type.</p>
-          <h3><code>bssg.toml</code> Example</h3>
-          <pre><code class="language-toml">[bssg]
+          <p><code>bssg</code> exposes a number of useful functions as a single command-line executable.</p>
+          <p>The output of each function goes to stdout by default. You can redirect the output using the <code>></code> operator.</p>
+          <p>You can execute <code>bssg</code> with no arguments to get the list of supported functions:</p>
+          <pre><code>Usage: bssg [options] [command]
 
-[[build.steps]]
-step = "rm"
-path = "docs"
+Brad's Static Website Generator
 
-[[build.steps]]
-step = "mkdir"
-path = "docs"
+Options:
+  -V, --version                          output the version number
+  -h, --help                             display help for command
 
-[[build.steps]]
-step = "cp"
-inputFile = "CNAME"
-outputFile = "docs/CNAME"
+Commands:
+  lessc &#x3C;input-file>                     compile a less file
+  markdownc &#x3C;input-file> [extends-file]  compile a markdown file
+  pugc &#x3C;input-file> [locals-file]        compile a pug file
+  help [command]                         display help for command
+</code></pre>
+          <h3><code>lessc</code></h3>
+          <p>Compiles a <code>.less</code> file into CSS.</p>
+          <pre><code class="language-bash"># reads a less file, converts it to CSS, and writes it to style.css
+bssg lessc style.less > style.css
+</code></pre>
+          <h3><code>markdownc</code></h3>
+          <p>Compiles a markdown file into HTML</p>
+          <pre><code class="language-bash"># reads a markdown file, converts it to HTML, and writes it to blog.html
+bssg markdownc blog.md > blog.html
 
-[[build.steps]]
-step = "transformless"
-inputFile = "style.less"
-outputFile = "docs/style.less"
+# reads a markdown file, converts it to HTML, 
+# compiles a pug file, injects the compiled markdown into it,
+# and (finally) writes it to blog.html 
+# replaces BLOCK_CONTENT in the pug file
+bssg markdownc blog.md blog.pug > blog.html 
+</code></pre>
+          <h3><code>pugc</code></h3>
+          <p>Compiles a pug file into HTML</p>
+          <pre><code class="language-bash"># reads a pug file, converts it to HTML and writes it to index.html
+bssg pugc index.pug > index.html
 
-[[build.steps]]
-step = "transformpug",
-inputFile = "pug/index.pug",
-outputFile = "docs/index.html"
+# reads a pug file, using a JSON file as the locals,
+# and writes it to index.html
+bssg pugc index.pug locals.json > index.html
 </code></pre>
         </div>
       </div>
