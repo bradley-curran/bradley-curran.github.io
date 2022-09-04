@@ -1,4 +1,5 @@
 {
-  "exec": "clear && bssg",
-  "ext": "json less md pug toml"
+  "exec": "clear && ./build.sh",
+  "ext": "json less md pug",
+  "ignore": ["docs"]
 }
