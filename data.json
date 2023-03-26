@@ -1,6 +1,10 @@
 {
   "blogposts": [
     {
+      "title": "From docker to nerdctl on macOS",
+      "href": "/blog/from-docker-to-nerdctl"
+    },
+    {
       "title": "bssg - Brad's Static Site Generator",
       "href": "/blog/bssg"
     }

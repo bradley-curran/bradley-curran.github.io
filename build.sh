@@ -20,3 +20,4 @@ bssg pugc pug/rss.pug data.json > docs/rss.xml
 # blog
 mkdir docs/blog
 bssg markdownc blog/bssg.md pug/blog.pug > docs/blog/bssg.html
+bssg markdownc blog/from-docker-to-nerdctl.md pug/blog.pug > docs/blog/from-docker-to-nerdctl.html

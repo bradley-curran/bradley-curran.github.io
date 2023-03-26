@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="description" content="Bradley Curran. Senior Software Engineer.">
+    <title>Brad Curran</title>
+    <link rel="alternate" type="application/rss+xml" title="Bradley Curran RSS" href="/rss.xml">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+
+  <body>
+    <div class="content">
+      <div class="main">
+        <div class="basepad">
+          <h1 class="title"><a href="/">Brad Curran</a></h1>
+        </div>
+        <hr class="nomargin">
+        <div class="basepad markdown-container">
+          <h1>Moving from docker to nerdctl on macOS</h1>
+          <h2>TL;DR:</h2>
+          <pre><code>brew install lima
+limactl start template://default
+nerdctl.lima run --rm -it ubuntu:latest
+</code></pre>
+          <h2>Overview</h2>
+          <p>If you've worked with docker on macOS, you've probably used Docker Desktop.
+            It's an all-in-one solution for working with images and containers on macOS.
+            While Docker Desktop is great to get started with containers, it hides a lot of
+            the internals. Now that I'm doing a deep dive on docker, I thought it was time
+            to upgrade.</p>
+          <p>Let's back up and explain how docker works. When you use <code>docker</code> on the command
+            line, you're using the docker client. The client interacts with <code>dockerd</code>, the
+            docker server. <code>dockerd</code> interacts with the linux container APIs.</p>
+          <p>macOS doesn't natively support container APIs, so how can we use containers in
+            macOS? We have to run linux somehow. Typically, you'll run a linux virtual
+            machine on macOS, then run the containers inside the linux VM.</p>
+          <p>We need to configure a linux VM on our mac. There's a bunch of ways to do this,
+            but the method I've found easiest, while still maintaining low-level control is
+            <code>lima</code>. It uses QEMU to run linux virtual machines on mac.
+          </p>
+          <h2>Setting up lima</h2>
+          <p>Install <code>brew</code> if you haven't already. Install lima using brew:</p>
+          <pre><code>brew install lima
+</code></pre>
+          <p>This will add two commands, <code>lima</code> and <code>limactl</code>. <code>limactl</code> is used to manage
+            VMs and <code>lima</code> is used to shell into the VMs.</p>
+          <p>Verify that the lima installed:</p>
+          <pre><code>limactl ls
+WARN[0000] No instance found. Run `limactl start` to create an instance.
+</code></pre>
+          <p>We don't have any VMs installed, so let's install one:</p>
+          <pre><code>limactl start template://default
+
+? Creating an instance "default"  [Use arrows to move, type to filter]
+> Proceed with the current configuration
+  Open an editor to review or modify the current configuration
+  Choose another example (docker, podman, archlinux, fedora, ...)
+  Exit
+</code></pre>
+          <p>Proceed with the current configuration. This will download and startup a VM
+            configured to manage containers.</p>
+          <p><strong>Note:</strong> You can see the example configurations available to you
+            <a href="https://github.com/lima-vm/lima/tree/master/examples">on GitHub</a> or
+            <code>/usr/local/share/lima/examples/</code>.
+          </p>
+          <p>You should now be able to shell into the VM:</p>
+          <pre><code>lima
+</code></pre>
+          <p>Or if you want to type more characters (they both do the same thing):</p>
+          <pre><code>limactl shell default
+</code></pre>
+          <p>This should open a shell on the VM.</p>
+          <h2>I have a VM, but I wanted to do container things</h2>
+          <p>We still need a way to interact with the lima VM. The <code>docker</code> client interacts
+            with <code>dockerd</code> over a unix socket. But lima uses <code>containerd</code> instead of
+            <code>dockerd</code>. So we need to run an alternative docker client. Fortunately, lima
+            comes with a client called <code>nerdctl</code>. The CLI is very close to the existing
+            <code>docker</code> CLI, which makes migration really easy.
+          </p>
+          <pre><code>lima nerdctl images
+</code></pre>
+          <p>The above is SSHing into your lima VM, running <code>nerdctl images</code>, and printing
+            the output. You can use the <code>nerdctl.lima</code> command as an alternative too:</p>
+          <pre><code>nerdctl.lima images
+</code></pre>
+          <p>I like to alias nerdctl to nerdctl.lima in my shell to make things a little
+            easier:</p>
+          <pre><code># in my .zshrc
+alias nerdctl='nerdctl.lima'
+</code></pre>
+          <p>Now you can finally start using containers!</p>
+          <pre><code>nerdctl run --rm -it ubuntu:latest
+...
+elapsed: 22.5s
+root@d5d2eb94204a:/# echo 'hello world!'
+hello world!
+</code></pre>
+          <p>Now you can work with containers and have a lot more control over the system
+            that runs the containers. Happy hacking!</p>
+          <h2>References</h2>
+          <ul>
+            <li>Lima <a href="https://github.com/lima-vm/lima">https://github.com/lima-vm/lima</a></li>
+            <li>containerd <a href="https://containerd.io/">https://containerd.io/</a></li>
+            <li>nerdctl <a href="https://github.com/containerd/nerdctl">https://github.com/containerd/nerdctl</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer basepad"><a class="footerunit" href="/rss.xml">RSS</a><a class="footerunit" href="mailto:brad@bradleycurran.com">Email</a><a class="footerunit" href="https://www.linkedin.com/in/bradleycurran/" target="_blank">LinkedIn</a><a class="footerunit" href="https://github.com/bradley-curran/" target="_blank">GitHub</a></div>
+    </div>
+  </body>
+
+</html>
